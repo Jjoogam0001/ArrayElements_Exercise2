@@ -81,7 +81,7 @@ public class ArraysExercise {
                     break;
                 case 12:
                     int n = 3;
-                    int [][] matrix = {{1,2,3,},{2,4,6},{3,6,9}};
+                    int[][] matrix = {{1, 2, 3,}, {2, 4, 6}, {3, 6, 9}};
 
                     for (int i = 0; i < 3; i++) {
                         for (int j = 0; j < 3; j++) {
@@ -91,12 +91,11 @@ public class ArraysExercise {
                         System.out.println();
                     }
                     System.out.println();
-                    printOutdiagonalElements(matrix,n);
+                    printOutdiagonalElements(matrix, n);
 
                     break;
                 case 13:
                     oddnEvenArrangedArray();
-
 
 
                     break;
@@ -108,6 +107,27 @@ public class ArraysExercise {
 
 
         } while (choice <= 13);
+
+
+    }
+
+    public static void menu() {
+        System.out.println();
+        System.out.println("Welcome to my second exercise (Arrays 2nd week)");
+        System.out.println();
+        System.out.println("(1) Store elements in an array and print them out");
+        System.out.println("(2) Find the position of an element in array stored");
+        System.out.println("(3) Sort Cities in ascending order (A-B)");
+        System.out.println("(4) Copy elements in the above array into another array");
+        System.out.println("(5) Match cities according to corresponding countries");
+        System.out.println("(6) Finding the average of 10 elements in an array");
+        System.out.println("(7) Finding odd numbers from an array");
+        System.out.println("(8) Remove duplicate elements from an arra");
+        System.out.println("(9) Add all elements in an array according to user inputs");
+        System.out.println("(10) Multplication table stored in a multidimensional array");
+        System.out.println("(11) Get a reversed order of an array basing on the user inputs");
+        System.out.println("(12) Get diagonal elements from matrix ");
+        System.out.println("(13) Odd and Even Arranged Array ");
 
 
     }
@@ -175,7 +195,7 @@ public class ArraysExercise {
     public static void twoDimensionalArray() {
         String[][] countriesAndCities = {{"Sweden", "France", "United Kingdom", "USA", "Egypt", "Denmark"}, {"Stockholm", "Paris", "London", "Washington DC", "Cairo", "Copenhagen"}};
 
-        System.out.println("we matching the following strings to there corresponding childs (countries - cities " + Arrays.toString(countriesAndCities[0])+" "+Arrays.toString(countriesAndCities[1]));
+        System.out.println("we matching the following strings to there corresponding childs (countries - cities " + Arrays.toString(countriesAndCities[0]) + " " + Arrays.toString(countriesAndCities[1]));
         System.out.println();
         for (int i = 0; i < countriesAndCities.length; i++) {
             for (int j = 0; j < countriesAndCities[i].length; j++) {
@@ -261,7 +281,7 @@ public class ArraysExercise {
         return table;
     }
 
-    public static  void reverseArrayElements(){
+    public static void reverseArrayElements() {
         System.out.println("Enter the size of the array:");
         int arraylegth = input.nextInt();
         int[] array = new int[arraylegth];
@@ -276,11 +296,11 @@ public class ArraysExercise {
         System.out.println("Array in reverse order:");
 
         //Here we just use the opposite of the usual loop statement and substract the 1 from the length of our Array
-        for(int i=array.length-1;i>=0;i--)
+        for (int i = array.length - 1; i >= 0; i--)
             System.out.print(array[i] + "  ");
     }
 
-    public static void printOutdiagonalElements(int tx[][], int n){
+    public static void printOutdiagonalElements(int tx[][], int n) {
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -293,9 +313,9 @@ public class ArraysExercise {
 
     }
 
-    public static  void oddnEvenArrangedArray(){
-        int [] randomNumberArray;
-        int [] finalArray;
+    public static void oddnEvenArrangedArray() {
+        int[] randomNumberArray;
+        int[] finalArray;
         int left = 0;
 
         System.out.println("Enter the size of the  Random array:");
@@ -309,19 +329,17 @@ public class ArraysExercise {
 
         }
         System.out.println("Elements in the random array: " + Arrays.toString(randomNumberArray));
-        int  right = randomNumberArray.length - 1;
-        while (left < right)
-        {
+        int right = randomNumberArray.length - 1;
+        while (left < right) {
             /* Increment left index while we see 0 at left */
-            while (randomNumberArray[left]%2 == 0 && left < right)
+            while (randomNumberArray[left] % 2 == 0 && left < right)
                 left++;
 
             /* Decrement right index while we see 1 at right */
-            while (randomNumberArray[right]%2 == 1 && left < right)
+            while (randomNumberArray[right] % 2 == 1 && left < right)
                 right--;
 
-            if (left < right)
-            {
+            if (left < right) {
                 /* Swap arr[left] and arr[right]*/
                 int temp = randomNumberArray[left];
                 randomNumberArray[left] = randomNumberArray[right];
@@ -339,32 +357,6 @@ public class ArraysExercise {
             finalArray[i] = finalArray[i];
         }
         System.out.println(Arrays.toString(randomNumberArray));
-
-
-
-    }
-
-
-
-
-
-    public static void menu() {
-        System.out.println();
-        System.out.println("Welcome to my second exercise (Arrays 2nd week)");
-        System.out.println();
-        System.out.println("(1) Store elements in an array and print them out");
-        System.out.println("(2) Find the position of an element in array stored");
-        System.out.println("(3) Sort Cities in ascending order (A-B)");
-        System.out.println("(4) Copy elements in the above array into another array");
-        System.out.println("(5) Match cities according to corresponding countries");
-        System.out.println("(6) Finding the average of 10 elements in an array");
-        System.out.println("(7) Finding odd numbers from an array");
-        System.out.println("(8) Remove duplicate elements from an arra");
-        System.out.println("(9) Add all elements in an array according to user inputs");
-        System.out.println("(10) Multplication table stored in a multidimensional array");
-        System.out.println("(11) Get a reversed order of an array basing on the user inputs");
-        System.out.println("(12) Get diagonal elements from matrix ");
-        System.out.println("(13) Odd and Even Arranged Array ");
 
 
     }
