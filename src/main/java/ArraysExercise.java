@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -76,10 +76,27 @@ public class ArraysExercise {
 
                     break;
                 case 11:
+                    reverseArrayElements();
+
                     break;
                 case 12:
+                    int n = 3;
+                    int [][] matrix = {{1,2,3,},{2,4,6},{3,6,9}};
+
+                    for (int i = 0; i < 3; i++) {
+                        for (int j = 0; j < 3; j++) {
+                            System.out.print(matrix[i][j] + " ");
+                        }
+
+                        System.out.println();
+                    }
+                    System.out.println();
+                    printOutdiagonalElements(matrix,n);
+
                     break;
                 case 13:
+
+
                     break;
                 case 14:
                     System.out.println("Goodbye thanks for checking out my implementation");
@@ -242,6 +259,39 @@ public class ArraysExercise {
         return table;
     }
 
+    public static  void reverseArrayElements(){
+        System.out.println("Enter the size of the array:");
+        int arraylegth = input.nextInt();
+        int[] array = new int[arraylegth];
+        int sum = 0;
+        System.out.println("Add elements in the array one by one");
+        for (int i = 0; i < array.length; i++) {
+            array[i] = input.nextInt();
+
+
+        }
+        System.out.println("Elements in the array include: " + Arrays.toString(array));
+        System.out.println("Array in reverse order:");
+
+        //Here we just use the opposite of the usual loop statement and substract the 1 from the length of our Array
+        for(int i=array.length-1;i>=0;i--)
+            System.out.print(array[i] + "  ");
+    }
+
+    public static void printOutdiagonalElements(int tx[][], int n){
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i == j) {
+                    System.out.print(tx[i][j] + ", ");
+                }
+            }
+        }
+        System.out.println("");
+
+    }
+
+
 
     public static void menu() {
         System.out.println();
@@ -257,6 +307,8 @@ public class ArraysExercise {
         System.out.println("(8) Remove duplicate elements from an arra");
         System.out.println("(9) Add all elements in an array according to user inputs");
         System.out.println("(10) Multplication table stored in a multidimensional array");
+        System.out.println("(11) Get a reversed order of an array basing on the user inputs");
+        System.out.println("(12) Get diagonal elements from matrix ");
 
 
     }
