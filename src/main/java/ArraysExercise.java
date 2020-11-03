@@ -4,22 +4,96 @@ import java.util.Scanner;
 
 public class ArraysExercise {
 
-    private static Scanner input = new Scanner(System.in);
-    private static int[] numbers = new int[9];
+    // Make global variables to be accessed in the ArrayExercise class
+
+    private static final Scanner input = new Scanner(System.in);
+    private static final int[] numbers = new int[9];
+
 
     public static void main(String[] args) {
         System.out.println();
-        menu();
-        int[][] data;
-        data = dimensionaltimesTable(10, 10);
-        for (int row = 0; row < data.length; row++) {
-            for (int column = 0; column < data[row].length; column++) {
-                System.out.printf("%2d ", data[row][column]);
-            }
+        int choice = 0;
+
+        //Menu to access all done exercises from 1- 18
+        //do while loop to run until the user stops the program
+        do {
+            menu();
             System.out.println();
-        }
+            choice = input.nextInt();
+            switch (choice) {
+                case 1:
+                    printOutArray();
+                    break;
+                case 2:
+                    System.out.println("(2) Find the Position of an element in the Array above");
+                    System.out.println("What element position do you want to find?:");
+                    int element = input.nextInt();
+                    System.out.println("The position of " + element + " is : " + indexOf(element, numbers));
+                    break;
+                case 3:
+                    sortedstringArray();
+                    break;
+                case 4:
+
+                    copyArrayElements(numbers);
+                    break;
+                case 5:
+                    twoDimensionalArray();
+                    break;
+                case 6:
+                    System.out.println("(6) Average of Array {43,5,23,17,2,14}");
+                    int[] array2 = {43, 5, 23, 17, 2, 14};
+                    averageArrangeOfArray(array2);
+                    System.out.println();
+
+                    break;
+                case 7:
+                    System.out.println("(7) Find odd Number in an Array {1 2 4 7 9 12}");
+                    int[] array = {1, 2, 4, 7, 9, 12};
+                    printOutOddNumbers(array);
+
+                    break;
+                case 8:
+                    int[] array3 = {20, 20, 40, 20, 30, 40, 50, 60, 50};
+                    System.out.println("(8) Remove duplicates from " + Arrays.toString(array3));
+                    removeDuplicateELements(array3, array3.length);
+
+                    break;
+                case 9:
+                    addUpAllElementsInArray();
+
+                    break;
+                case 10:
+
+                    int[][] store;
+                    store = dimensionaltimesTable(10, 10);
+                    for (int row = 0; row < store.length; row++) {
+                        for (int column = 0; column < store[row].length; column++) {
+                            System.out.printf("%2d ", store[row][column]);
+                        }
+                        System.out.println();
+                    }
+
+                    break;
+                case 11:
+                    break;
+                case 12:
+                    break;
+                case 13:
+                    break;
+                case 14:
+                    System.out.println("Goodbye thanks for checking out my implementation");
+                    break;
+
+            }
 
 
+        } while (choice <= 13);
+
+
+    }
+
+    public static void printOutArray() {
         System.out.println("(1) Enter 9 Numbers to be Stored");
 
 
@@ -30,37 +104,6 @@ public class ArraysExercise {
 
         System.out.println(java.util.Arrays.toString(numbers));
         System.out.println();
-        System.out.println("(2) Find the Position of an element in the Array above");
-        System.out.println("What element position do you want to find?:");
-        int element = input.nextInt();
-        System.out.println("The position of " + element + " is : " + indexOf(element, numbers));
-
-        System.out.println();
-
-        sortedstringArray();
-        copyArrayElements(numbers);
-        System.out.println("Two dimensional Array");
-        twoDimensionalArray();
-
-        System.out.println();
-
-        System.out.println("(6) Average of Array {43,5,23,17,2,14}");
-        int[] array2 = {43, 5, 23, 17, 2, 14};
-        averageArrangeOfArray(array2);
-        System.out.println();
-
-        System.out.println("(7) Find odd Number in an Array");
-        int[] array = {1, 2, 6, 7, 9, 12, 70, 20, 12, 90};
-
-        printOutEvenNumbers(array);
-
-        int[] array3 = {20, 20, 40, 20, 30, 40, 50, 60, 50};
-        System.out.println("(8) Remove duplicates from " + Arrays.toString(array3));
-
-
-        removeDuplicateELements(array3, array3.length);
-
-
     }
 
     public static int indexOf(int element, int[] array) {
@@ -84,7 +127,7 @@ public class ArraysExercise {
     public static void sortedstringArray() {
         System.out.println("Sorting String Array");
         String[] stringarray = new String[]{"Paris", "London", "New York", "Stockholm"};
-        System.out.println("(3) " + java.util.Arrays.toString(stringarray));
+        System.out.println("(3) sorting this in ascending order A-B " + java.util.Arrays.toString(stringarray));
         java.util.Arrays.sort(stringarray); // sort the array
         System.out.println("sorted Array: " + java.util.Arrays.toString(stringarray));
 
@@ -93,20 +136,28 @@ public class ArraysExercise {
     public static void copyArrayElements(int[] array) {
 
         // Create A new array same size as the original Array
-        int NewArray[] = new int[array.length];
+
+        if (array == null) {
+            System.out.println("Do task 1 to fill up the array in order to to copy it into another array");
+        }
+
+        int[] NewArray = new int[array.length];
         for (int i = 0; i < array.length; i++) {
 
             //Assign all values in Orinigal Array into New Array
             NewArray[i] = array[i];
 
+
         }
+        System.out.println(Arrays.toString(NewArray));
 
     }
 
     public static void twoDimensionalArray() {
         String[][] countriesAndCities = {{"Sweden", "France", "United Kingdom", "USA", "Egypt", "Denmark"}, {"Stockholm", "Paris", "London", "Washington DC", "Cairo", "Copenhagen"}};
 
-
+        System.out.println("we matching the following strings to there corresponding childs (countries - cities " + Arrays.toString(countriesAndCities[0])+" "+Arrays.toString(countriesAndCities[1]));
+        System.out.println();
         for (int i = 0; i < countriesAndCities.length; i++) {
             for (int j = 0; j < countriesAndCities[i].length; j++) {
                 System.out.println(countriesAndCities[0][j] + " --> " + countriesAndCities[1][j]);
@@ -129,7 +180,7 @@ public class ArraysExercise {
 
     }
 
-    public static void printOutEvenNumbers(int[] numbers) {
+    public static void printOutOddNumbers(int[] numbers) {
         System.out.print("Odd Array:");
         for (int i = 0; i < numbers.length; i++) {
             if (numbers[i] % 2 != 0) {
@@ -194,7 +245,7 @@ public class ArraysExercise {
 
     public static void menu() {
         System.out.println();
-        System.out.println("Welcome to my second exercise(Arrays 2nd week)");
+        System.out.println("Welcome to my second exercise (Arrays 2nd week)");
         System.out.println();
         System.out.println("(1) Store elements in an array and print them out");
         System.out.println("(2) Find the position of an element in array stored");
@@ -202,10 +253,10 @@ public class ArraysExercise {
         System.out.println("(4) Copy elements in the above array into another array");
         System.out.println("(5) Match cities according to corresponding countries");
         System.out.println("(6) Finding the average of 10 elements in an array");
-        System.out.println("(7) Remove duplicate elements from an array");
-        System.out.println("(8) Adding elements in array according to the user input");
-        System.out.println("(9) Store elements in an array and print them out");
-        System.out.println("(10) Mulplication table stored in a multidimensional array");
+        System.out.println("(7) Finding odd numbers from an array");
+        System.out.println("(8) Remove duplicate elements from an arra");
+        System.out.println("(9) Add all elements in an array according to user inputs");
+        System.out.println("(10) Multplication table stored in a multidimensional array");
 
 
     }
