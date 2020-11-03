@@ -95,6 +95,8 @@ public class ArraysExercise {
 
                     break;
                 case 13:
+                    oddnEvenArrangedArray();
+
 
 
                     break;
@@ -155,7 +157,7 @@ public class ArraysExercise {
         // Create A new array same size as the original Array
 
         if (array == null) {
-            System.out.println("Do task 1 to fill up the array in order to to copy it into another array");
+            System.out.println("Do task 1 to fill up the array in order to copy it into another array");
         }
 
         int[] NewArray = new int[array.length];
@@ -291,6 +293,59 @@ public class ArraysExercise {
 
     }
 
+    public static  void oddnEvenArrangedArray(){
+        int [] randomNumberArray;
+        int [] finalArray;
+        int left = 0;
+
+        System.out.println("Enter the size of the  Random array:");
+        int arraylegth = input.nextInt();
+        randomNumberArray = new int[arraylegth];
+        int sum = 0;
+        System.out.println("Add elements in the array one by one");
+        for (int i = 0; i < randomNumberArray.length; i++) {
+            randomNumberArray[i] = input.nextInt();
+
+
+        }
+        System.out.println("Elements in the random array: " + Arrays.toString(randomNumberArray));
+        int  right = randomNumberArray.length - 1;
+        while (left < right)
+        {
+            /* Increment left index while we see 0 at left */
+            while (randomNumberArray[left]%2 == 0 && left < right)
+                left++;
+
+            /* Decrement right index while we see 1 at right */
+            while (randomNumberArray[right]%2 == 1 && left < right)
+                right--;
+
+            if (left < right)
+            {
+                /* Swap arr[left] and arr[right]*/
+                int temp = randomNumberArray[left];
+                randomNumberArray[left] = randomNumberArray[right];
+                randomNumberArray[right] = temp;
+                left++;
+                right--;
+            }
+
+        }
+        // Finnaly we copy all these elements into the Final Array
+        finalArray = new int[randomNumberArray.length];
+        for (int i = 0; i < randomNumberArray.length; i++) {
+
+            //Assign all values in Orinigal Array into New Array
+            finalArray[i] = finalArray[i];
+        }
+        System.out.println(Arrays.toString(randomNumberArray));
+
+
+
+    }
+
+
+
 
 
     public static void menu() {
@@ -309,6 +364,7 @@ public class ArraysExercise {
         System.out.println("(10) Multplication table stored in a multidimensional array");
         System.out.println("(11) Get a reversed order of an array basing on the user inputs");
         System.out.println("(12) Get diagonal elements from matrix ");
+        System.out.println("(13) Odd and Even Arranged Array ");
 
 
     }
